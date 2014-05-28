@@ -1,0 +1,17 @@
+{
+    "name": "marleny/simpleblog",
+    "description": "A simple blog",
+    "require": {
+        "silex/silex": "~1.2",
+        "twig/twig": "*",
+        "twitter/bootstrap": "3.x",
+        "doctrine/dbal": "2.2.*"
+    },
+    "authors": [
+        {
+            "name": "marlenunez",
+            "email": "marlenunez@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
