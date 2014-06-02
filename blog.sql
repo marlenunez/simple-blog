@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2014 at 06:06 AM
+-- Generation Time: Jun 02, 2014 at 06:13 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `title` varchar(256) CHARACTER SET latin1 NOT NULL,
   `content` text CHARACTER SET latin1 NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `date`) VALUES
+INSERT INTO `posts` (`id`, `title`, `content`, `creationdate`) VALUES
 (1, 'Post title 1', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.', '2014-02-28 16:00:00'),
 (2, 'Post title 2', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.', '2014-03-27 15:00:00'),
 (3, 'Post title 3', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.', '2014-03-30 15:00:00'),
