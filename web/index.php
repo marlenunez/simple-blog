@@ -9,9 +9,9 @@ $app['debug'] = true;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => array(
-    	__DIR__ . '/../views',
-    	__DIR__.'/../vendor/twitter/bootstrap/dist/css'
-    	)
+        __DIR__ . '/../views',
+        __DIR__.'/../vendor/twitter/bootstrap/dist/css'
+        )
 ));
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
@@ -24,26 +24,28 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
+$recent_posts = $app['db']->fetchAll("SELECT * FROM posts LIMIT 5");
+$app['twig']->addGlobal("recent_posts", $recent_posts);
+
 use Symfony\Component\HttpFoundation\Request;
 
-$app->get( '/', function() use ( $app ) {
-	
-	$posts = $app['db']->fetchAll("SELECT * FROM posts LIMIT 10");
+$app->get( '/', function() use ($app) {
 
-	return $app['twig']->render('index.html', array(
+    $posts = $app['db']->fetchAll("SELECT * FROM posts LIMIT 10");
+
+    return $app['twig']->render('blog_home.twig', array(
         'posts' => $posts
     ));
 });
 
 $app->get('/post/{id}', function ($id) use ($app) {
+
     $sql = "SELECT * FROM posts WHERE id = ?";
-    
     $posts = $app['db']->fetchAll($sql, array((int) $id));
 
-    return $app['twig']->render('index.html', array(
+    return $app['twig']->render('blog_post.twig', array(
         'posts' => $posts
     ));
-
 });
 
 $app->run();
