@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block blog_title %}Home - A simple blog with Twig and Bootstrap{% endblock %}
+
+{% block blog_section %}
+        <div class="col-sm-8 blog-main">
+
+          {% for post in posts %}
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a href="/post/{{post.id}}">{{ post.title }}</a></h2>
+            <p>{{ post.content|striptags|length > 140 ? post.content|striptags|slice(0,140) ~ '...' : post.content|raw }}</p>
+          </div><!-- /.blog-post -->
+          <hr>
+
+          {% endfor %}
+
+        </div><!-- /.blog-main -->
+{% endblock %}
